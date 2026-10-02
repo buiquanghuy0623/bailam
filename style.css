@@ -1,0 +1,68 @@
+/* RESET & COMMON STYLES */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* 1. NAVBAR (Flexbox 1D) */
+.app-navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #212529;
+    color: white;
+    padding: 15px 30px;
+    flex-wrap: wrap; /* Giúp tự động rớt dòng nếu màn hình quá nhỏ */
+    gap: 15px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links a {
+    color: #adb5bd;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.nav-links a:hover {
+    color: #ffffff;
+}
+
+/* 2. DASHBOARD (CSS Grid 2D - Bento Box Layout) */
+.grid-dashboard {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.widget {
+    background: white;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+}
+
+/* Biểu đồ lớn chiếm 2 hàng trong lưới Grid */
+.widget-large {
+    grid-row: span 2;
+    background: #e9ecef;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 500;
+}
+
+/* Responsive cho Dashboard trên Tablet/Mobile */
+@media (max-width: 768px) {
+    .grid-dashboard {
+        grid-template-columns: 1fr; /* Chuyển về 1 cột trên màn hình nhỏ */
+    }
+    .widget-large {
+        grid-row: span 1; /* Hủy tính năng chiếm 2 hàng trên mobile */
+    }
+}
